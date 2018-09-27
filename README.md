@@ -1,2 +1,2 @@
-# ProxyManagerWeb
-Proxy Manager Web Version
+# Extensão
+Extensão para o IFSP - Hortolândia
