@@ -1,0 +1,92 @@
+*{
+	font-size: 20px;
+	margin:0;
+	padding:0;
+	
+}
+
+#btn_cadastrar{
+	background-color: #389836;
+	color: white;
+}
+
+#btn_entrar{
+
+	background-color: #C91518;
+	color: white;
+}
+
+.tudo{
+	padding:30px;
+	width: 50%;
+	background-color: white;
+	box-shadow: 3px 3px grey;
+
+}
+
+.espaco{
+	width: 100%;
+	height: 100px;
+}
+
+
+
+form{
+	width: 100%;
+	margin: 0 auto;
+	 
+}
+
+.w3-bar button{
+	width: 200px;
+	height: 55px;
+}
+
+
+.greenExtensao{
+	background-color: #9AA52C;
+	
+}
+.redIF{
+	background-color: #C91518;
+	color: white;
+}
+.greenIF{
+	background-color: #389836;
+	color: white;
+
+}
+
+@media screen and (max-width: 1024px) {
+	*{
+		font-size: 14px;
+	}
+
+  #img-extensao{
+  	width: 90%;
+  }
+  #img-logoIF{
+  	width: 20%;
+  }
+  .espaco{
+  	height: 50px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+	.tudo{
+  	width: 90%;
+  	}
+}
+
+
+.msg{
+	padding: 0;
+	margin: 0;
+	color:#C91518;
+}
+
+.inputLogin{
+	width: 70%;
+}

@@ -1,0 +1,38 @@
+create table curso(
+    id int PRIMARY KEY AUTO_INCREMENT not null,
+	nome varchar(200),
+    descricao varchar(200)
+);
+
+create table edital(
+    id int PRIMARY KEY AUTO_INCREMENT not null,
+	professor varchar(200),
+    dt_inicio date,
+    dt_fim date,
+    qtd_total integer,
+    qtd_deficiente integer,
+    qtd_negro integer,
+    qtd_geral integer,
+    descricao varchar(200),
+    curso int,
+    FOREIGN key (curso) REFERENCES curso(id)
+);
+
+create TABLE turma(
+	id int PRIMARY KEY AUTO_INCREMENT not null,
+    dt_fim date,
+    dt_inicio date,
+    horario integer,
+    nome varchar(200)
+);
+
+create table inscricao(
+	id int PRIMARY KEY AUTO_INCREMENT not null,
+    edital int,
+    usuario int,
+    turma int,
+    dt_inscricao date,
+    FOREIGN key (edital) REFERENCES edital(id),
+    FOREIGN key (turma) REFERENCES turma(id),
+    FOREIGN key (usuario) REFERENCES usuarios(id)
+);
