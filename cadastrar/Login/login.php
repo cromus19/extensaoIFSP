@@ -16,8 +16,16 @@
 		$logarray = $array['senha'];
 		
 		if ($logarray == $senha) {
-            setcookie("login",$login);
-            header("Location:index.php");
+						setcookie("login",$login);
+						$query_select = "SELECT ADM from usuarios WHERE email = '$login'";
+						$select = mysqli_query($connect,$query_select);
+						$array = mysqli_fetch_array($select);
+						$logarray = $array['ADM'];
+						if ($logarray == 1){
+							header("Location:/adm_page.html");
+						}else{
+							header("Location:/aluno_page.html");
+						}
 		}
 		else{
 			echo"<script language='javascript' type='text/javascript'>alert('Senha incorreta');window.location.href='../../login.php';</script>";

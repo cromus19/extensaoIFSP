@@ -35,7 +35,7 @@
 			
 			<input  class="w3-btn greenIF" type="submit" name="Cadastrar" value="Entrar">
 			
-			<button class="w3-btn redIF" onclick="window.location='index.html';">Voltar</button>
+			<button class="w3-btn redIF" onclick="window.location='/index.html';">Voltar</button>
 
 			<br>
 			<br>
@@ -43,7 +43,7 @@
 
 		</form>
 		<hr>		
-		<small class="msg">Não tem cadastro?</a></small> <a href="cadastro.html"><small>clique aqui</small>
+		<small class="msg">Não tem cadastro?</a></small> <a href="/cadastro.html"><small>clique aqui</small>
 		<hr>
 	</div>
 	</center>

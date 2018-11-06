@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -30,7 +31,9 @@
 	  		<input class="w3-input w3-border" name="nome" type="text" required></p>
 	  		<hr>
 		    <p><label>E-mail</label>
-			<input class="w3-input w3-border" name="email" type="text" required></p>
+			<input class="w3-input w3-border" name="email" type="text" required
+			onblur="validacaoEmail(this.value)"></p>
+			<div id="resultadoEmail" class="erro"></div>
 			<hr>
 			<p><label>Senha</label>
 			<input class="w3-input w3-border" name="senha" type="password" required></p>
@@ -39,14 +42,17 @@
 			<input class="w3-input w3-border" name="senha" type="password" required></p>
 			<hr>
 			<p><label>CPF</label>
-			<input class="w3-input w3-border" id="cpf" name="cpf" type="number" required></p>
+			<input class="w3-input w3-border" id="cpf" name="cpf" type="text" required
+			maxlength="11" pattern="([0-9]{11})" onblur="validaCPF(this.value)"></p>
 			<div id="resultado" class="erro"></div>
 			<hr>
 			<p><label>RG</label>
-			<input class="w3-input w3-border" name="RG" type="text" required></p>
+			<input class="w3-input w3-border" name="RG" type="text" required
+			id="rg"></p>
 			<hr>
 			<p><label>Tipo de vaga</label><br><br>
-			<select class="w3-select" name="tipoVaga" required>
+			<select class="w3-select" name="tipoVaga" required 
+			onchange="tipoVagaChange()" id="tipoVaga">
 				<option value="" disabled selected>Selecione o tipo de vaga</option>
 				<option value="1">Ampla concorrência</option>
 				<option value="2">Vagas de cotas</option>
@@ -54,7 +60,7 @@
 			</select>
 			<hr>
 			<p><label>CID</label>
-			<input class="w3-input w3-border" name="CID" type="text" required></p>
+			<input class="w3-input w3-border" name="CID" type="text" disabled="true" id="CID"></p>
 			<hr>
 			<p><label>Data de nacimento</label>
 			<input class="w3-input w3-border" name="dataNascimento" type="date" required></p>
@@ -110,7 +116,8 @@
   			
   			
 			
-			<input  class="w3-btn greenIF" type="submit" id="cadastrar" name="Cadastrar" value="Cadastrar">
+			<input  class="w3-btn greenIF" type="submit" id="cadastrar" name="Cadastrar" 
+			value="Cadastrar">
 			<button class="w3-btn redIF" onclick="window.location='index.html';">Voltar</button>
 
 			<br>
@@ -119,14 +126,13 @@
 
 		</form>
 		<hr>		
-		<small class="msg">Já tem cadastro?</a></small> <a href="login.html"><small>clique aqui</small>
+		<small class="msg">Já tem cadastro?</a></small> <a href="login.php"><small>clique aqui</small>
 		<hr>
 
 	</div>
 	</center>
 
 	<div class="espaco"></div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/validacao.js"></script>
 
 </body>

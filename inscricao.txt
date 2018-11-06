@@ -1,3 +1,26 @@
+CREATE TABLE usuarios (
+  ID int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  login varchar(30),
+  nomeCompleto varchar(60),
+  senha varchar(40),
+  email varchar(60),
+  CPF varchar(60),
+  deficiencia tinyint(1) ,
+  CID varchar(30),
+  tipoVaga int(11) ,
+  dataNascimento varchar(30),
+  RG varchar(20),
+  rua varchar(60),
+  bairro varchar(30),
+  cidade varchar(30),
+  CEP varchar(10),
+  telCasa int(11) ,
+  telCel int(11) ,
+  etnia int(11) ,
+  relacaoIF int(11) ,
+  obs varchar(60),
+  ADM tinyint(1) 
+);
 create table curso(
     id int PRIMARY KEY AUTO_INCREMENT not null,
 	nome varchar(200),
