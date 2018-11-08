@@ -79,10 +79,12 @@
 			<hr>
 			
 			<p><label>Telefone (Casa)</label>
-			<input class="w3-input w3-border" name="telCasa" type="number" required></p>
+			<input class="w3-input w3-border" name="telCasa" type="text" required
+			maxlength="11" pattern="([0-9]{11})" id="telCasa"></p>
 			<hr>
 			<p><label>Telefone (celular)</label>
-			<input class="w3-input w3-border" name="telCel" type="number" required></p>
+			<input class="w3-input w3-border" name="telCel" type="text" required
+			maxlength="11" pattern="([0-9]{11})" id="telCel"></p>
 			<hr>
 			<p><label>Etnia</label>
 			<select class="w3-select" name="etnia" required>

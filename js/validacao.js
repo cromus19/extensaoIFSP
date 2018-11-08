@@ -6,6 +6,14 @@ $( document ).ready(function() {
 	$("#rg").keyup(function() {
 		$("#rg").val(this.value.match(/[0-9]*/));
 	});
+
+	$("#telCasa").keyup(function() {
+		$("#telCasa").val(this.value.match(/[0-9]*/));
+	});
+
+	$("#telCel").keyup(function() {
+		$("#telCel").val(this.value.match(/[0-9]*/));
+	});
 });
 
 function tipoVagaChange(){

@@ -37,17 +37,15 @@
 		<form action="/cadastrar/curso/cadastro.php" method="post">
 
 			<p><h1>Curso</h1>
-			<select class="w3-select" name="curso" required>			
-			</select>
 	  		<hr>
 	  		<p><label>Nome do Curso</label>
-	  		<input class="w3-input w3-border" name="nome" type="text" required></p>
+	  		<input class="w3-input w3-border" name="nome" type="text" required="required"></p>
 	  		<hr>
 	  		<p><label>Descrição</label>
-	  		<input class="w3-input w3-border" name="desc" type="text" required></p>
+	  		<input class="w3-input w3-border" name="desc" type="text" required="required"></p>
 	  		<hr>
-      <input  class="waves-effect waves-light btn green" type="submit" name="Cadastrar" value="Cadastrar">
-			<button class="waves-effect waves-light btn green" onclick="window.location='/index.html';">Voltar</button>
+      <input  class="waves-effect waves-light btn green" type="submit" name="Cadastrar" value="Cadastrar"/>
+			<button class="waves-effect waves-light btn green" type="button" onclick="window.location='/index.html';">Voltar</button>
 
 			<br>
 			<br>
