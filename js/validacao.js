@@ -3,16 +3,16 @@ $( document ).ready(function() {
 		$("#cpf").val(this.value.match(/[0-9]*/));
 	});
 
-	$("#rg").keyup(function() {
-		$("#rg").val(this.value.match(/[0-9]*/));
-	});
-
 	$("#telCasa").keyup(function() {
 		$("#telCasa").val(this.value.match(/[0-9]*/));
 	});
 
 	$("#telCel").keyup(function() {
 		$("#telCel").val(this.value.match(/[0-9]*/));
+	});
+
+	$("#CEP").keyup(function() {
+		$("#CEP").val(this.value.match(/[0-9]*/));
 	});
 });
 
@@ -67,5 +67,8 @@ function validacaoEmail(email) {
 	var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	if (!filter.test(email)) {
 		document.getElementById("resultadoEmail").innerHTML="<font color='red'>Email inválido </font>";
+		document.getElementById("resultadoEmail").hidden=false;
+	}else{
+		document.getElementById("resultadoEmail").hidden=true;
 	}
 }

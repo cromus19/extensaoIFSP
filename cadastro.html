@@ -41,14 +41,15 @@
 			<p><label>Confirmar senha</label>
 			<input class="w3-input w3-border" name="senha" type="password" required></p>
 			<hr>
-			<p><label>CPF</label>
+			<p><label>CPF </label>
 			<input class="w3-input w3-border" id="cpf" name="cpf" type="text" required
 			maxlength="11" pattern="([0-9]{11})" onblur="validaCPF(this.value)"></p>
 			<div id="resultado" class="erro"></div>
+			<small>Somente números</small>
 			<hr>
 			<p><label>RG</label>
 			<input class="w3-input w3-border" name="RG" type="text" required
-			id="rg"></p>
+			id="rg" maxlength="11"></p>
 			<hr>
 			<p><label>Tipo de vaga</label><br><br>
 			<select class="w3-select" name="tipoVaga" required 
@@ -66,7 +67,8 @@
 			<input class="w3-input w3-border" name="dataNascimento" type="date" required></p>
 			<hr>
 			<p><label>CEP</label>
-			<input class="w3-input w3-border" name="CEP" type="text" required></p>
+			<input class="w3-input w3-border" name="CEP" type="text" required
+			maxlength="11" pattern="([0-9]{11})" id="CEP"></p>
 			<hr>
 			<p><label>Rua</label>
 			<input class="w3-input w3-border" name="rua" type="text" required></p>

@@ -25,15 +25,30 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+<hr>
+    <form action="usuario/aluno_page.php" method="post">
+      <select class="w3-select" name="usuarios" required>
+   <?php 
+          $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
+          $sql = mysql_query("select * from usuarios and usuarios");
+          $query_select = "select * from usuarios";
+          $select = mysqli_query($connect,$query_select);
+          $array = mysqli_fetch_array($select);
+          $logarray = $array['usuarios'];
+            }
+          }
+        ?>
+        </select>
+      <hr>
   <div class="container">
     <div class="section">
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <p class="light">Bem vindo Aluno</p>
+            <p class="light">Bem vindo Aluno!<?php echo $logarray ['usuarios'] ?></strong></p>
           </div>
         </div>
-        
+       
         </div>
         <div class="row">
             <div class="col m4">
@@ -41,15 +56,15 @@
               <tbody>
                  <tr>
                   <td>Nome: </td>
-                  <td>TESTE</td>
+
                 </tr>
                 <tr>
                   <td>CPF: </td>
-                  <td>TESTE</td>
+
                 </tr>
                 <tr>
                   <td>RG: </td>
-                  <td>Thornton</td>
+
                 </tr>
               </tbody>
             </table>
@@ -60,15 +75,15 @@
               <tbody>
                  <tr>
                   <td>E-mail:</td>
-                  <td>TESTE</td>
+  
                 </tr>
                 <tr>
                   <td>E-mail:</td>
-                  <td>TESTE</td>
+                  
                 </tr>
                 <tr>
                   <td>Telefone</td>
-                  <td>Thornton</td>
+                 
                 </tr>
               </tbody>
             </table>
@@ -87,7 +102,6 @@
                 <p>Período</p>
               </div class="col s12 m4">
               <div class="card-action">
-                <a href="#">Alterar</a>
                 <a href="#">Cancelar</a>
               </div>
             </div>
@@ -108,8 +122,7 @@
             <p>Período</p>
           </div class="col s12 m4">
           <div class="card-action">
-            <a href="#">Alterar</a>
-            <a href="#">Cancelar</a>
+            <a href="#">Cadastrar</a>
           </div>
         </div>
       </div>
