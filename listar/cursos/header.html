@@ -10,6 +10,33 @@
   <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script type = javascript>
+		function remove(id) {
+		 	var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("content").innerHTML = this.responseText;
+			    }
+			};
+			xmlhttp.open("GET", "curso.php?remove=" + id, true);
+			xmlhttp.send();
+    		    }
+		}
+		function edita(id) {
+		 	var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("content").innerHTML = this.responseText;
+			    }
+			};
+			xmlhttp.open("GET", "curso.php?edita=" + id, true);
+			xmlhttp.send();
+    		    }
+		}
+
+</script>
+	</script>
 </head>
 <body>
   <nav class="light-green lighten-1" role="navigation">

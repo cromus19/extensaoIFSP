@@ -1,7 +1,17 @@
 <?php 
-  echo file_get_contents("header.html");
 
-  $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
+  $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');	
+  if (empty  ($_GET["remove"]) and empty ($_GET["edita"])) {
+	echo file_get_contents("header.html");
+  }
+   
+  else {
+	if ((empty ($_GET["edita"])) {
+		$query = "delete from curso where id = ".$_GET["remove"];
+ 		$select = mysqli_query($connect,$query);
+	}
+  }
+  
   $query = "select * from curso";
   $select = mysqli_query($connect,$query);
     
@@ -14,12 +24,12 @@
                     <td>".$row["nome"]."</td>
                     <td>".$row["descricao"]."</td>
                     <td>
-                        <a id=".$row["id"]." class='waves-effect waves-light btn'>
+                        <a onclick= edita('".$row["id"]."') class='waves-effect waves-light btn'>
                             <i class='material-icons'>edit</i>
                         </a>
                     </td>
                     <td>
-                        <a id=".$row["id"]." class='waves-effect waves-light btn'>
+                        <a onclick= remove('".$row["id"]."') class='waves-effect waves-light btn'>
                             <i class='material-icons'>delete</i>
                         </a>
                     </td>
