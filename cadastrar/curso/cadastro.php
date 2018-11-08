@@ -10,7 +10,7 @@ if ($nome == ""){
   echo"<script language='javascript' type='text/javascript'>alert('O campo Descrição total deve ser preenchido');window.location.href='cadastro.php';</script>";
 }else{
   $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
-  $query = "INSERT INTO curso(nome, descricao) VALUES ('$nome',$descricao')";
+  $query = "INSERT INTO curso(nome, descricao) VALUES ('$nome','$desc')";
   $insert = mysqli_query($connect,$query);
            
   if($insert){
