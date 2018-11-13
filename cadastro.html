@@ -50,6 +50,7 @@
 			<p><label>RG</label>
 			<input class="w3-input w3-border" name="RG" type="text" required
 			id="rg" maxlength="11"></p>
+			<small>Somente números</small>
 			<hr>
 			<p><label>Tipo de vaga</label><br><br>
 			<select class="w3-select" name="tipoVaga" required 
@@ -68,7 +69,8 @@
 			<hr>
 			<p><label>CEP</label>
 			<input class="w3-input w3-border" name="CEP" type="text" required
-			maxlength="11" pattern="([0-9]{11})" id="CEP"></p>
+			maxlength="8" pattern="([0-9]{8})" id="CEP"></p>
+			<small>Somente números</small>
 			<hr>
 			<p><label>Rua</label>
 			<input class="w3-input w3-border" name="rua" type="text" required></p>

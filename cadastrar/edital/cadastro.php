@@ -41,16 +41,16 @@ else if($curso == ""){
 }else if($qtd_somada <> $qtd_total){
   echo"<script language='javascript' type='text/javascript'>alert('O valores de vagas, quando somados, precisam atingir a quantidade total!');window.location.href='cadastro_edital.php';</script>";
 }else if($curso == 0){
-  echo"<script language='javascript' type='text/javascript'>alert('Por favor, adicione um curso primeiro');window.location.href='cadastro_edital.php';</script>";
+  echo"<script language='javascript' type='text/javascript'>alert('Por favor, adicione um curso primeiro');window.location.href='adm_page.php';</script>";
 }else{
   $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
   $query = "INSERT INTO edital(professor, dt_inicio, dt_fim, qtd_total, qtd_deficiente, qtd_negro, qtd_geral, descricao, curso) VALUES ('$professor', '$dataInicio', '$dataFim', '$qtd_total', '$qtd_def', '$qtd_negro', '$qtd_geral', '$descricao', '$curso')";
   $insert = mysqli_query($connect,$query);
            
   if($insert){
-      echo"<script language='javascript' type='text/javascript'>alert('Edital cadastrado com sucesso!');window.location.href='cadastro_edital.php';</script>";
+      echo"<script language='javascript' type='text/javascript'>alert('Edital cadastrado com sucesso!');window.location.href='/adm_page.php';</script>";
     }else{
-      echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');/script>";
+      echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse edital');/script>";
     }
 }
 ?>

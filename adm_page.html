@@ -12,10 +12,12 @@
 </head>
 <body>
   <nav class="light-green lighten-1" role="navigation">
-    <div class="nav-wrapper container"><img id="img-logoIF" src="img/logo.png" width="10px" height="60px"><a id="logo-container" href="#" class="brand-logo">Extensão</a>
+    <div class="nav-wrapper container"><img id="img-logoIF" src="img/logo.png" width="10px" height="60px"><a id="logo-container" href="/adm_page.php" class="brand-logo">Extensão</a>
     	
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Sair</a></li>
+          <form method="POST" id="FORM" action='/adm_page.php'>
+            <li><a href="javascript:{}" onclick="document.getElementById('FORM').submit();" >Sair</a></li>
+        </form>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">

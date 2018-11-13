@@ -66,7 +66,7 @@
 <input class="w3-input w3-border" name="dataFim" type="date" required></p>
 <hr>
 <input  class="w3-btn greenIF" type="submit" name="Cadastrar" value="Cadastrar">
-<button class="w3-btn redIF" onclick="window.location='index.html';">Voltar</button>
+<button class="w3-btn redIF" onclick="window.location='/adm_page.php';">Voltar</button>
 
 <br>
 <br>

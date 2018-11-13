@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <title>IFSP</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,8 +15,9 @@
     <div class="nav-wrapper container"><img id="img-logoIF" src="img/logo.png" width="10px" height="60px"><a id="logo-container" href="#" class="brand-logo">Extensão</a>
     	
       <ul class="right hide-on-med-and-down">
-          <li><a href="#">Matricular</a></li>
-        <li><a href="#">Sair</a></li>
+      <form method="POST" id="FORM" action='/adm_page.php'>
+        <li><a href="javascript:{}" onclick="document.getElementById('FORM').submit();" >Sair</a></li>
+</form>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -28,16 +29,6 @@
 <hr>
     <form action="usuario/aluno_page.php" method="post">
       <select class="w3-select" name="usuarios" required>
-   <?php 
-          $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
-          $sql = mysql_query("select * from usuarios and usuarios");
-          $query_select = "select * from usuarios";
-          $select = mysqli_query($connect,$query_select);
-          $array = mysqli_fetch_array($select);
-          $logarray = $array['usuarios'];
-            }
-          }
-        ?>
         </select>
       <hr>
   <div class="container">
@@ -45,7 +36,15 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <p class="light">Bem vindo Aluno!<?php echo $logarray ['usuarios'] ?></strong></p>
+            <?php
+            $login = $_COOKIE['login'];
+            $query_select = "SELECT nomeCompleto, CPF, RG, telCasa, telCel FROM usuarios WHERE email = '$login'";
+            $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
+            $select = mysqli_query($connect,$query_select);
+            $array = mysqli_fetch_array($select);
+            $nome = $array['nomeCompleto'];
+            echo "<p class='light'>Bem vindo $nome!</strong></p>";
+            ?>
           </div>
         </div>
        
@@ -55,15 +54,15 @@
             <table class="table">
               <tbody>
                  <tr>
-                  <td>Nome: </td>
+                  <td>Nome: <?php echo $array['nomeCompleto'];?></td>
 
                 </tr>
                 <tr>
-                  <td>CPF: </td>
+                  <td>CPF: <?php echo $array['CPF'];?></td>
 
                 </tr>
                 <tr>
-                  <td>RG: </td>
+                  <td>RG: <?php echo $array['RG'];?></td>
 
                 </tr>
               </tbody>
@@ -74,15 +73,15 @@
             <table class="table">
               <tbody>
                  <tr>
-                  <td>E-mail:</td>
+                  <td>E-mail: <?php echo $login;?></td>
   
                 </tr>
                 <tr>
-                  <td>E-mail:</td>
+                  <td>Telefone Casa: <?php echo $array['telCasa'];?></td>
                   
                 </tr>
                 <tr>
-                  <td>Telefone</td>
+                  <td>Telefone Cel: <?php echo $array['telCel'];?></td>
                  
                 </tr>
               </tbody>

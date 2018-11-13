@@ -38,7 +38,7 @@ create table edital(
     qtd_geral integer,
     descricao varchar(200),
     curso int,
-    FOREIGN key (curso) REFERENCES curso(id)
+    FOREIGN key (curso) REFERENCES curso(id) on delete CASCADE
 );
 
 create TABLE turma(
@@ -55,7 +55,7 @@ create table inscricao(
     usuario int,
     turma int,
     dt_inscricao date,
-    FOREIGN key (edital) REFERENCES edital(id),
-    FOREIGN key (turma) REFERENCES turma(id),
-    FOREIGN key (usuario) REFERENCES usuarios(id)
+    FOREIGN key (edital) REFERENCES edital(id) on delete CASCADE,
+    FOREIGN key (turma) REFERENCES turma(id) on delete CASCADE,
+    FOREIGN key (usuario) REFERENCES usuarios(id) on delete CASCADE
 );

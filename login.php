@@ -1,4 +1,12 @@
-
+<?php
+    	if(isset($_COOKIE['login'])){
+			if($_COOKIE['tipo']=="ADM"){
+				header("Location:adm_page.php");
+			}else{
+				header("Location:aluno_page.php");
+			}
+        }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,8 +59,3 @@
 	<div class="espaco"></div>
 </body>
 </html>
-<?php
-    	if(isset($_COOKIE['login'])){
-            header("Location:index.php");
-        }
-?>

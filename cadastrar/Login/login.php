@@ -16,23 +16,25 @@
 		$logarray = $array['senha'];
 		
 		if ($logarray == $senha) {
-						setcookie("login",$login);
+						setcookie("login",$login, time() + (86400 * 30), "/");
 						$query_select = "SELECT ADM from usuarios WHERE email = '$login'";
 						$select = mysqli_query($connect,$query_select);
 						$array = mysqli_fetch_array($select);
 						$logarray = $array['ADM'];
 						if ($logarray == 1){
-							header("Location:/adm_page.html");
+							setcookie("tipo", "ADM", time() + (86400 * 30), "/");
+							header("Location:/adm_page.php");
 						}else{
-							header("Location:/aluno_page.html");
+							setcookie("tipo", "ALUNO", time() + (86400 * 30), "/");
+							header("Location:/aluno_page.php");
 						}
 		}
 		else{
-			echo"<script language='javascript' type='text/javascript'>alert('Senha incorreta');window.location.href='../../login.php';</script>";
+			echo"<script language='javascript' type='text/javascript'>alert('Senha incorreta');window.location.href='/login.php';</script>";
 			die();
 		}
     }else{         
-		echo"<script language='javascript' type='text/javascript'>alert('Usuário incorreto');window.location.href='../../login.php';</script>";
+		echo"<script language='javascript' type='text/javascript'>alert('Usuário incorreto');window.location.href='/login.php';</script>";
         die();
     }
 ?>

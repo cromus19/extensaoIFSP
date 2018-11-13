@@ -31,12 +31,12 @@ $array = mysqli_fetch_array($select);
 $logarray = $array['email'];
  
   if($email == "" || $email == null){
-    echo"<script language='javascript' type='text/javascript'>alert('O campo email deve ser preenchido');window.location.href='cadastro.html';</script>";
+    echo"<script language='javascript' type='text/javascript'>alert('O campo email deve ser preenchido');window.location.href='/cadastro.html';</script>";
  
     }else{
       if($logarray == $email){
  
-        echo"<script language='javascript' type='text/javascript'>alert('Esse email já existe');window.location.href='cadastro.html';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Esse email já existe');window.location.href='/cadastro.html';</script>";
         die();
  
       }else{
@@ -44,9 +44,9 @@ $logarray = $array['email'];
         $insert = mysqli_query($connect,$query);
          
         if($insert){
-          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='/public_html/login.html'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='/login.php'</script>";
         }else{
-          echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='/public_html/cadastro.html'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='/cadastro.html'</script>";
         }
       }
     }
