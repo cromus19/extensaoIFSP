@@ -1,99 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body>
-  <nav class="light-green lighten-1" role="navigation">
-    <div class="nav-wrapper container"><img id="img-logoIF" src="/img/logo.png" width="10px" height="60px"><a id="logo-container" href="#" class="brand-logo">Extensão</a>
-    	
-      <ul class="right hide-on-med-and-down">
-      	<li><a href="/cadastrar/curso/curso.html">Criar Curso</a></li>
-      	<li><a href="">Criar Turma</a></li>
-        <li><a href="#">Sair</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-      	<li><a href="">Criar Curso</a></li>
-      	<li><a href="">Criar Turma</a></li>
-        <li><a href="#">Sair</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="section">
+<body class="greenExtensao">
+	<div class="espaco"></div>
+	<center>
+	<div class="tudo ">
+			<br>
+			<img  src="/img/logo.png" width="60px">
+			<br>
+			<img  src="/img/extensao.png" width="220px"><br>
+	  		<h2>Cadastro de Turma</h2>
+	  		<p>Preencha os campos para realizar o cadastro</p>
+		
+		<hr>
 		
 		<small class="msg">*Todos os campos são obrigatorios</small>
 		<hr>
 
-		<form action="cadastrar/recebe.php" method="post">
+		<form action="recebe.php" method="post">
 
 	  		<hr>
 	  		<p><label>Nome Completo </label>
-	  		<input class="w3-input w3-border" name="kkk" type="text" required></p>
-	  		
+	  		<input class="w3-input w3-border" name="nome" type="text" required></p>
 	  		<hr>
-		    <p><label>E-mail</label>
-			<input class="w3-input w3-border" name="login" type="text" required></p>
-			
+	  		<p><label>E-mail</label>
+					<input class="w3-input w3-border" name="email" type="text" required
+					onblur="validacaoEmail(this.value)"></p>
+					<div id="resultadoEmail" class="erro"></div>
+					<hr>
 			<hr>
-			<p><label>Login</label>
+			<p><label>Senha</label>
 			<input class="w3-input w3-border" name="senha" type="password" required></p>
-			
-			<hr>
-			<p><label>Criar senha</label>
-			<input class="w3-input w3-border" name="last" type="password" required></p>
 
 			<hr>
-			<p><label>Confirma senha</label>
-			<input class="w3-input w3-border" name="last" type="password" required></p>
+			<p><label>Confirmar senha</label>
+			<input class="w3-input w3-border" name="senha" type="password" required></p>
 			
 						
 			<hr>
 			<p><label>Observação</label>
-			<input class="w3-input w3-border" name="last" type="text" required></p>
+			<input class="w3-input w3-border" name="obs" type="text" required></p>
 			<hr>
 
 			<input  class="w3-btn greenIF" type="submit" name="Cadastrar" value="Cadastrar">
-			<button class="w3-btn redIF" onclick="window.location='home.html';">Voltar</button>
+			<button class="w3-btn redIF" onclick="window.location='/adm_page.php';">Voltar</button>
 
 			<br>
 			<br>
 
 		</form>
-		<hr>		
-		<small class="msg">Já tem cadastro?</a></small> <a href="/login.html"><small>clique aqui</small>
-		<hr>
 	</div>
-	<br><br>
-	</div>
-	<div class="espaco">
-	</div>
-	<footer class="page-footer light-green">
-	<div class="container">
-	  <div class="row">
-		<div class="col l6 s12">
-		  <h5 class="white-text">IFSP</h5>
-		  <p class="grey-text text-lighten-4">IFSP Extensão</p>
-		</div>
-	
-	  </div>
-	</div>
-	</footer>
-	
-	
-	<!--  Scripts-->
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="/js/materialize.js"></script>
-	<script src="/js/init.js"></script>
-	</body>
-	</html>
+</center>
+
+<div class="espaco"></div>
+<script type="text/javascript" src="js/validacao.js"></script>
+
+</body>
+</html>
