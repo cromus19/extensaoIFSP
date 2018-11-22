@@ -41,6 +41,7 @@
             $query_select = "SELECT nomeCompleto, CPF, RG, telCasa, telCel FROM usuarios WHERE email = '$login'";
             $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
             $select = mysqli_query($connect,$query_select);
+            $array = mysqli_fetch_array($select);
             ?>
           </div>
         </div>
