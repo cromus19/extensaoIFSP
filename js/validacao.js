@@ -14,7 +14,40 @@ $( document ).ready(function() {
 	$("#CEP").keyup(function() {
 		$("#CEP").val(this.value.match(/[0-9]*/));
 	});
+	cpf_valor=false;
+email_valor=false;
 });
+
+//Count content
+maxL = 2000;
+var bName = navigator.appName;
+
+function taLimit(taObj) {
+	maxL= taObj.getAttribute("maxlength");
+  if (taObj.value.length == maxL) return false;
+  return true;
+}
+
+function taCount(taObj, Cnt) {
+  objCnt = createObject(Cnt);
+  objVal = taObj.value;
+  if (objVal.length > maxL) objVal = objVal.substring(0, maxL);
+  if (objCnt) {
+	if (bName == "Netscape") {
+	  objCnt.textContent = maxL - objVal.length;
+	} else {
+	  objCnt.innerText = maxL - objVal.length;
+	}
+  }
+  return true;
+}
+
+function createObject(objId) {
+  if (document.getElementById) return document.getElementById(objId);
+  else if (document.layers) return eval("document." + objId);
+  else if (document.all) return eval("document.all." + objId);
+  else return eval("document." + objId);
+} //End Count content
 
 function tipoVagaChange(){
 	var x = document.getElementById("tipoVaga").value;
@@ -59,6 +92,7 @@ validaCPF = function (cpf){
 			return false;
 		}
 		document.getElementById('resultado').innerHTML="CPF VALIDO";
+		cpf_valor=true;
 		return true;
 	}
 }
@@ -70,5 +104,41 @@ function validacaoEmail(email) {
 		document.getElementById("resultadoEmail").hidden=false;
 	}else{
 		document.getElementById("resultadoEmail").hidden=true;
+		email_valor=true;
 	}
+}
+
+function submitForm(){
+	if (email_valor == false){
+		alert("Inserir E-mail Válido!");
+	}else if(cpf_valor == false){
+		alert("Inserir CPF Válido!");
+	}else if (document.getElementById('senha').value != document.getElementById('confsenha').value){
+		alert("As senhas não correspondem!");
+	}else{
+		document.getElementById("cadastro").submit();
+	}
+}
+
+function submitFormADM(){
+	if (email_valor == false){
+		alert("Inserir E-mail Válido!");
+	}else if (document.getElementById('senha').value != document.getElementById('confsenha').value){
+		alert("As senhas não correspondem!");
+	}else{
+		document.getElementById("cadastro").submit();
+	}
+}
+
+
+function lettersOnly(evt) {
+    evt = (evt) ? evt : event;
+    var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+        ((evt.which) ? evt.which : 0));
+    if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+        (charCode < 97 || charCode > 122)) {
+        alert("Somente letras!");
+        return false;
+    }
+    return true;
 }

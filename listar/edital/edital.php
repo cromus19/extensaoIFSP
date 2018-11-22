@@ -33,8 +33,6 @@
   </nav>
   <div class="container">
     <div class="section">
-		
-		<small class="msg">*Todos os campos são obrigatorios</small>
 		<hr>
 <?php 
   $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');

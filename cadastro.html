@@ -24,22 +24,30 @@
 		
 		<small class="msg">*Todos os campos são obrigatorios</small>
 		<hr>
-		<form action="cadastrar/cadastro_user/cadastro.php" method="post">
+		<form action="cadastrar/cadastro_user/cadastro.php" method="post" id="cadastro">
 
 	  		<hr>
 	  		<p><label>Nome Completo </label>
-	  		<input class="w3-input w3-border" name="nome" type="text" required></p>
+			  <input class="w3-input w3-border" name="nome" type="text"
+			  maxlength="50" required 
+			  onKeyUp="return taCount(this,'nomeQtd')" onKeyPress="return taLimit(this)"></p>
+			  <small>Quantidade restante de <small id="nomeQtd">50</small> caracteres</small>
 	  		<hr>
 		    <p><label>E-mail</label>
 			<input class="w3-input w3-border" name="email" type="text" required
-			onblur="validacaoEmail(this.value)"></p>
+			onblur="validacaoEmail(this.value)" maxlength="100"
+			onKeyUp="return taCount(this,'emailQtd')" onKeyPress="return taLimit(this)"></p>
 			<div id="resultadoEmail" class="erro"></div>
+			<small>Quantidade restante de <small id="emailQtd">100</small> caracteres</small>
 			<hr>
 			<p><label>Senha</label>
-			<input class="w3-input w3-border" name="senha" type="password" required></p>
+			<input class="w3-input w3-border" id="senha" type="password" required
+			maxlength="8"></p>
+			<small>Limite máximo de 8 caracteres</small>
 			<hr>
 			<p><label>Confirmar senha</label>
-			<input class="w3-input w3-border" name="senha" type="password" required></p>
+			<input class="w3-input w3-border" id="confsenha" type="password" required
+			maxlength="8"></p>
 			<hr>
 			<p><label>CPF </label>
 			<input class="w3-input w3-border" id="cpf" name="cpf" type="text" required
@@ -116,14 +124,14 @@
 				</select>
 			<hr>
 			<p><label>Observação</label>
-			<input class="w3-input w3-border" name="obs" type="text" required></p>
+			<input class="w3-input w3-border" name="obs" type="text" required maxlength="100"></p>
 			<hr>
 
   			
   			
 			
-			<input  class="w3-btn greenIF" type="submit" id="cadastrar" name="Cadastrar" 
-			value="Cadastrar">
+			<input  class="w3-btn greenIF" id="cadastrar" name="Cadastrar" 
+			value="Cadastrar" onclick="submitFormADM()">
 			<button class="w3-btn redIF" onclick="window.location='index.html';">Voltar</button>
 
 			<br>

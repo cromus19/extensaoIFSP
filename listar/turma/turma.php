@@ -16,10 +16,10 @@
     <div class="nav-wrapper container"><img id="img-logoIF" src="/img/logo.png" width="10px" height="60px"><a id="logo-container" href="/adm_page.php" class="brand-logo">Extensão</a>
     	
       <ul class="right hide-on-med-and-down">
-          <form method="POST" id="FORM" action='/adm_page.php'>
-          <li><a href="/cadastrar/curso/curso.html">Criar Curso</a></li>
-      	<li><a href="">Criar Turma</a></li>
-        <li><a href="javascript:{}" onclick="document.getElementById('FORM').submit();" >Sair</a></li>
+      <form method="POST" id="FORM" action='/adm_page.php'>
+      	<li><a href="/cadastrar/curso/curso.html">Criar Curso</a></li>
+          <li><a href="/cadastrar/turma/cadastro_turma.php">Criar Turma</a></li>
+          <li><a href="javascript:{}" onclick="document.getElementById('FORM').submit();" >Sair</a></li>
         </form>
       </ul>
 
@@ -35,18 +35,20 @@
     <div class="section">
 		<hr>
 <?php 
- $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
- $query = "select * from curso";
-  $select = mysqli_query($connect,$query);    
+  $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
+  $query = "select t.nome, t.id,t.dt_fim, t.dt_inicio, t.horario from turma t";
+  $select = mysqli_query($connect,$query);
+    
   echo "<table>"   ;        
   if (mysqli_num_rows($select) > 0) {
     // output data of each row
-    echo "<tr><th>Nome</th><th>Descricao</th><th> </th></tr>";
+    echo "<tr><th>Turma</th><th>Horario</th><th>Data Inicio</th><th>Data Fim</th><th></th></tr>";
     while($row = mysqli_fetch_assoc($select)) {
-        $form = 'FORM'.$row["id"];
         echo " <tr>
                     <td>".$row["nome"]."</td>
-                    <td>".$row["descricao"]."</td>
+                    <td>".$row["horario"]."</td>
+                    <td>".$row["dt_inicio"]."</td>
+                    <td>".$row["dt_fim"]."</td>
                     <td>
                         <a href='delete.php?id=".$row["id"]."'  class='waves-effect waves-light btn'>
                             <i class='material-icons'>delete</i>
@@ -56,9 +58,10 @@
     }
     echo "</table>";
 } else {
-    echo "Não há cursos cadastrados!";
+    echo "Não há turmas cadastradas!";
 }
 ?>
+
 </div>
 <br><br>
 </div>
@@ -75,6 +78,8 @@
   </div>
 </div>
 </footer>
+
+
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="/js/materialize.js"></script>

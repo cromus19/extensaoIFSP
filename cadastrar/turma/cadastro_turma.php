@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
@@ -24,25 +25,11 @@
 		<small class="msg">*Todos os campos são obrigatorios</small>
 		<hr>
 		<form action="cadastro.php" method="post">
-
-			<p><label>Curso</label><br><br>
-			<select class="w3-select" name="curso" required>
-<?php 
-$connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
-$query_select = "select id, nome from curso";
-$select = mysqli_query($connect,$query_select);
-if (mysqli_num_rows($select) > 0) {
-    while($row = mysqli_fetch_assoc($select)) {
-        echo "<option value='" . $row["id"]. "'>" . $row["nome"] . "</option>";
-    }
-} else {
-    echo "<option value='0'>Sem Curso</option>";
-}
-
-?>
-</select>
 <p><label>Nome </label>
-  <input class="w3-input w3-border" name="descricao" type="text" required></p>
+  <input class="w3-input w3-border" name="nome" type="text" required
+  maxlength=15
+onKeyUp="return taCount(this,'nome')" onKeyPress="return taLimit(this)"></p>
+<small>Quantidade restante de <small id="nome">15</small> caracteres</small>
   <hr>
 <p><label>Data de Inicio</label>
 <input class="w3-input w3-border" name="dataInicio" type="date" required></p>
@@ -51,7 +38,7 @@ if (mysqli_num_rows($select) > 0) {
 <input class="w3-input w3-border" name="dataFim" type="date" required></p>
 <hr>
 <input  class="w3-btn greenIF" type="submit" name="Cadastrar" value="Cadastrar">
-<button class="w3-btn redIF" onclick="window.location='index.html';">Voltar</button>
+<button class="w3-btn redIF" onclick="window.location='/adm_page.php';">Voltar</button>
 
 <br>
 <br>
@@ -60,6 +47,7 @@ if (mysqli_num_rows($select) > 0) {
 </center>
 
 <div class="espaco"></div>
+<script type="text/javascript" src="/js/validacao.js"></script>
 
 </body>
 </html>

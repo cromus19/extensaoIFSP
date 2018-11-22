@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
@@ -16,7 +17,7 @@
 			<img  src="/img/logo.png" width="60px">
 			<br>
 			<img  src="/img/extensao.png" width="220px"><br>
-	  		<h2>Cadastro de Turma</h2>
+	  		<h2>Cadastro de Administrador</h2>
 	  		<p>Preencha os campos para realizar o cadastro</p>
 		
 		<hr>
@@ -24,32 +25,36 @@
 		<small class="msg">*Todos os campos são obrigatorios</small>
 		<hr>
 
-		<form action="recebe.php" method="post">
+		<form action="recebe.php" method="post" id="cadastro">
 
+			  <hr>
+			  <p><label>Nome Completo </label>
+	  		<input class="w3-input w3-border" name="nome" type="text"
+			  maxlength="50" required 
+			  onKeyUp="return taCount(this,'nomeQtd')" onKeyPress="return taLimit(this)"></p>
+			  <small>Quantidade restante de <small id="nomeQtd">50</small> caracteres</small>
 	  		<hr>
-	  		<p><label>Nome Completo </label>
-	  		<input class="w3-input w3-border" name="nome" type="text" required></p>
-	  		<hr>
-	  		<p><label>E-mail</label>
-					<input class="w3-input w3-border" name="email" type="text" required
-					onblur="validacaoEmail(this.value)"></p>
-					<div id="resultadoEmail" class="erro"></div>
-					<hr>
+			  <p><label>E-mail</label>
+				<input class="w3-input w3-border" name="email" type="text" required
+				onblur="validacaoEmail(this.value)" maxlength="100"
+				onKeyUp="return taCount(this,'emailQtd')" onKeyPress="return taLimit(this)"></p>
+				<div id="resultadoEmail" class="erro"></div>
+				<small>Quantidade restante de <small id="emailQtd">100</small> caracteres</small>
 			<hr>
 			<p><label>Senha</label>
-			<input class="w3-input w3-border" name="senha" type="password" required></p>
-
-			<hr>
-			<p><label>Confirmar senha</label>
-			<input class="w3-input w3-border" name="senha" type="password" required></p>
-			
-						
+				<input class="w3-input w3-border" id="senha" type="password" required
+				maxlength="8"></p>
+				<small>Limite máximo de 8 caracteres</small>
+				<hr>
+				<p><label>Confirmar senha</label>
+				<input class="w3-input w3-border" id="confsenha" type="password" required
+				maxlength="8"></p>
 			<hr>
 			<p><label>Observação</label>
-			<input class="w3-input w3-border" name="obs" type="text" required></p>
+			<input class="w3-input w3-border" name="obs" type="text" required maxlength="100"></p>
 			<hr>
 
-			<input  class="w3-btn greenIF" type="submit" name="Cadastrar" value="Cadastrar">
+			<input  class="w3-btn greenIF" onclick="submitForm()" name="Cadastrar" value="Cadastrar">
 			<button class="w3-btn redIF" onclick="window.location='/adm_page.php';">Voltar</button>
 
 			<br>
@@ -60,7 +65,7 @@
 </center>
 
 <div class="espaco"></div>
-<script type="text/javascript" src="js/validacao.js"></script>
+<script type="text/javascript" src="/js/validacao.js"></script>
 
 </body>
 </html>
