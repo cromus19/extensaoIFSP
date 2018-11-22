@@ -92,7 +92,7 @@
           <?php
           error_reporting(E_ERROR | E_PARSE);
             $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
-            $query = "select c.nome, e.professor from curso c, edital e where c.id = e.curso and e.id in (select edital from inscricao where usuario = (select id from usuarios where email = '$login'))";
+            $query = "select c.nome, e.professor, e.id from curso c, edital e where c.id = e.curso and e.id in (select edital from inscricao where usuario = (select id from usuarios where email = '$login'))";
             $select = mysqli_query($connect,$query);       
             if (mysqli_num_rows($select) > 0) {
               // output data of each row
@@ -105,7 +105,7 @@
                       echo "<p>Professor: " .$row['professor']. "</p>";
                       echo "</div class='col s12 m4'>";
               echo "<div class='card-action'>";
-                echo "<a href='#'>Cancelar</a>";
+                echo "<a href='/cadastrar/inscricao/cancelar.php?edital=".$row['id']."'>Cancelar</a>";
               echo "</div>";
             echo "</div>";
           echo "</div>";
