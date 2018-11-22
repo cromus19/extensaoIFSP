@@ -41,18 +41,16 @@
             $query_select = "SELECT nomeCompleto, CPF, RG, telCasa, telCel FROM usuarios WHERE email = '$login'";
             $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
             $select = mysqli_query($connect,$query_select);
-            $array = mysqli_fetch_array($select);
-            $nome = $array['nomeCompleto'];
-            echo "<p class='light'>Bem vindo $nome!</strong></p>";
             ?>
           </div>
         </div>
        
         </div>
         <div class="row">
+			
             <div class="col m4">
             <table class="table">
-              <tbody>
+              <tbody>		
                  <tr>
                   <td>Nome: <?php echo $array['nomeCompleto'];?></td>
 
@@ -111,21 +109,28 @@
       <div>
         <p class="light">Cursos Disponíveis</p>
       </div>
-
-      <div class="col 4 m4">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Curso</span>
-            <p>NOME DO CURSO</p>
-            <p>Sala: </p>
-            <p>Período</p>
-          </div class="col s12 m4">
-          <div class="card-action">
-            <a href="#">Cadastrar</a>
+	   <?php
+            $query_select = "SELECT * FROM cursos";
+            $connect = mysqli_connect('localhost','id7285669_ifsp','ifsp123','id7285669_extensao');
+            $select = mysqli_query($connect,$query_select);
+        ?>
+	 <?php while($row = mysqli_fetch_assoc($select)) {	
+      echo "
+	  <div class='col 4 m4'>
+        <div class='card blue-grey darken-1'>
+          <div class='card-content white-text'>
+            <span class='card-title'>Curso</span>
+            <p>NOME DO CURSO</p>".$row['nome']."
+            <p>Descricao</p>".$row['descricao']."
+			<input type=hidden id=".$row['id']." value=".$row['id'].">
+          </div class='col s12 m4'>
+          <div class='card-action'>
+            <a href='#'>Cadastrar</a>
           </div>
         </div>
       </div>
-    </div>
+	 
+    </div>"
     </div>
 
   </div>
