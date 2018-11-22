@@ -54,7 +54,7 @@ create table inscricao(
     edital int,
     usuario int,
     turma int,
-    dt_inscricao date,
+    dt_inscricao datetime,
     FOREIGN key (edital) REFERENCES edital(id) on delete CASCADE,
     FOREIGN key (turma) REFERENCES turma(id) on delete CASCADE,
     FOREIGN key (usuario) REFERENCES usuarios(id) on delete CASCADE
