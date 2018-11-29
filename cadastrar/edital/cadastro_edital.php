@@ -67,7 +67,7 @@ maxlength=10000></p>
 <hr>
 <p><label>Descrição </label>
 <input class="w3-input w3-border" name="descricao" type="text" required
-maxlength=50
+maxlength=400
 onKeyUp="return taCount(this,'desc')" onKeyPress="return taLimit(this)"></p>
 <small>Quantidade restante de <small id="desc">50</small> caracteres</small>
 <hr>
